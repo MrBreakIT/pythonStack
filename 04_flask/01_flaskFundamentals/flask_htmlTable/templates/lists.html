@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <title>HTML Table-PIKE</title>
+
+    <!-- <style>
+        body {
+            background-color: lightgray;
+        }
+
+        .container {
+            width: 100%;
+            background-color: mediumseagreen;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center
+        }
+    </style> -->
+
+</head>
+
+
+<body class="col-10 d-flex mx-auto">
+    <wrapper class="col d-flex">
+        <div class="col mx-auto m-5 mt-5 background-color: mediumseagreen">
+            <h1 class="col text-center"><i>HTML Student Table</i></h1>
+            <table class="table table-dark table-striped table-hover table-bordered table-sm-responsive">
+                <thead>
+                    <tr class="=row">
+                        <th><b>First Name <b></th>
+                        <th><b>Last Name <b></th>
+                        <th><b>Full Name <b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for student in students%}
+                    <tr>
+                        <td>{{student.fName}}</td>
+                        <td>{{student.lName}}</td>
+                        <td>{{student.fName + ' '+ student.lName}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </wrapper>
+</body>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<h1>Random Numbers</h1>
+        {% for number in random_numbers %}
+            <p>{{ number }}</p>
+        {% endfor %}
+        <h1>Students</h1>
+        {% for student in students %}
+            <p>{{ student['name'] }} - {{ student['age'] }}</p>
+        {% endfor %} -->

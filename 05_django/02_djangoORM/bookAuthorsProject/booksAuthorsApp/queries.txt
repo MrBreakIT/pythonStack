@@ -1,0 +1,147 @@
+Saved/Listed variables for later:
+author1 = Author.objects.get(id=1)
+author2 = Author.objects.get(id=2)
+author3 = Author.objects.get(id=3)
+author4 = Author.objects.get(id=4)
+author5 = Author.objects.get(id=5)
+
+book1 = Book.objects.get(id=1)
+book2 = Book.objects.get(id=2)
+book3 = Book.objects.get(id=3)
+book4 = Book.objects.get(id=4)
+book5 = Book.objects.get(id=5)
+///////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+Query: Create 5 books with the following names: C Sharp, Java, Python, PHP, Ruby
+        In [2]: book1 = Book.objects.create(title ="C-Sharp")
+        In [3]: book2 = Book.objects.create(title ="Java")
+        In [4]: book3 = Book.objects.create(title ="Python")
+        In [5]: book4 = Book.objects.create(title ="PHP")
+        In [6]: book5 = Book.objects.create(title ="Ruby")
+        In [11]: Book.objects.all()
+        Out[11]:
+        <QuerySet [<Book: C-Sharp
+        >, <Book: Java
+        >, <Book: Python
+        >, <Book: PHP
+        >, <Book: Ruby
+        >]>
+
+Query: Create 5 different authors: Jane Austen, Emily Dickinson, Fyodor Dostoevsky, William Shakespeare, Lau Tzu
+        In [12]: author1 = Author.objects.create(fname="Jane", lname="Austen")
+        In [13]: author2 = Author.objects.create(fname="Emily", lname="Dickinson")
+        In [14]: author3 = Author.objects.create(fname="Fyodor", lname="Dostoevsky")
+        In [15]: author4 = Author.objects.create(fname="William", lname="Shakespeare")
+        In [16]: author5 = Author.objects.create(fname="Lau", lname="Tzu")
+        In [17]: Author.objects.all()
+        Out[17]:
+        <QuerySet [<Author: Jane Austen, booksAuthorsApp.Book.None
+        >, <Author: Emily Dickinson, booksAuthorsApp.Book.None
+        >, <Author: Fyodor Dostoevsky, booksAuthorsApp.Book.None
+        >, <Author: William Shakespeare, booksAuthorsApp.Book.None
+        >, <Author: Lau Tzu, booksAuthorsApp.Book.None
+        >]>
+
+
+Add a new text field in the authors table called 'notes'.
+        In [25]: Author.objects.get(id=1)
+        Out[25]:
+        <Author: Jane Austen, booksAuthorsApp.Book.None
+        >
+        In [26]: Author.objects.get(id=1).notes
+        Out[26]: 'placeholder notes'
+
+Create and run the migration files to update the table in your database.
+        check
+
+Query: Change the name of the C Sharp book to C#
+        In [2]: c=Book.objects.get(id=1)
+        In [3]: c.title = "C#"
+        In [4]: c.save()
+        In [5]: Book.objects.get(id=1)
+        Out[5]:
+        <Book: C#
+        >
+
+Query: Change the first name of the 4th author to Bill
+        In [6]: Author.objects.get(id=4).fname
+        Out[6]: 'William'
+        In [20]: c=Author.objects.get(id=4)
+        In [21]: c.fname = "Bill"
+        In [22]: c.save()
+        In [23]: Author.objects.get(id=4)
+        Out[23]:
+        <Author: Bill Shakespeare, booksAuthorsApp.Book.None
+        >
+
+Query: Assign the first author to the first 2 books
+*after re-setting my variables above:
+        author1.books.add(book1)
+        author1.books.add(book2)
+
+
+Query: Assign the second author to the first 3 books
+*attempted multiple add- didNOT work i.e. author2.books.add(book1).add(book2).add(book3)
+        author2.books.add(book1)
+        author2.books.add(book2)
+        author2.books.add(book3)
+
+Query: Assign the third author to the first 4 books
+        author3.books.add(book1)
+        author3.books.add(book2)
+        author3.books.add(book3)
+        author3.books.add(book4)
+
+Query: Assign the fourth author to the first 5 books (or in other words, all the books)
+        author4.books.add(book1)
+        author4.books.add(book2)
+        author4.books.add(book3)
+        author4.books.add(book4)
+        author4.books.add(book5)
+
+Query: Retrieve all the authors for the 3rd book
+        Book.objects.get(id=3).authors.all()
+            <QuerySet [<Author: Emily Dickinson, booksAuthorsApp.Book.None
+            >, <Author: Fyodor Dostoevsky, booksAuthorsApp.Book.None
+            >, <Author: Bill Shakespeare, booksAuthorsApp.Book.None
+            >]>
+
+Query: Remove the first author of the 3rd book
+        Book.objects.get(id=3).authors.all()        
+            <QuerySet [<Author: Emily Dickinson, booksAuthorsApp.Book.None
+            >, <Author: Fyodor Dostoevsky, booksAuthorsApp.Book.None
+            >, <Author: Bill Shakespeare, booksAuthorsApp.Book.None
+            >]>
+        Book.objects.get(id=3).authors.remove(Author.objects.get(id=2)) **NOTE-Author ID is global and not relative to book**
+        Book.objects.get(id=3).authors.all()
+            <QuerySet [<Author: Fyodor Dostoevsky, booksAuthorsApp.Book.None
+            >, <Author: Bill Shakespeare, booksAuthorsApp.Book.None
+
+Query: Add the 5th author as one of the authors of the 2nd book
+        Book.objects.get(id=2)
+            <Book: Java
+        Author.objects.get(id=5):
+            <Author: Lau Tzu, booksAuthorsApp.Book.None
+        Book.objects.get(id=2).authors.add(Author.objects.get(id=5))
+        Book.objects.get(id=2).authors.all()
+            <QuerySet [<Author: Jane Austen, booksAuthorsApp.Book.None
+            >, <Author: Emily Dickinson, booksAuthorsApp.Book.None
+            >, <Author: Fyodor Dostoevsky, booksAuthorsApp.Book.None
+            >, <Author: Bill Shakespeare, booksAuthorsApp.Book.None
+            >, <Author: Lau Tzu, booksAuthorsApp.Book.None
+
+Query: Find all the books that the 3rd author is part of
+        Author.objects.get(id=3).books.all()
+            <QuerySet [<Book: C#
+            >, <Book: Java
+            >, <Book: Python
+            >, <Book: PHP
+
+Query: Find all the authors that contributed to the 5th book
+        Book.objects.get(id=5).authors.all()
+            <QuerySet [<Author: Bill Shakespeare, booksAuthorsApp.Book.None
+
+
+Submit your .txt file that contains all the queries you ran in the shell

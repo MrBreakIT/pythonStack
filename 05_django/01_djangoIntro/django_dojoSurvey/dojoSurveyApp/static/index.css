@@ -1,0 +1,38 @@
+/* * {
+  width: 95%;
+  border: 1px dotted red;
+  margin: 5px;
+  margin-left: 10px;
+  text-align: left;
+}
+.main {
+  margin: 40px;
+  border: 2px solid black;
+}
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#language {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+input,
+select {
+  border: 2px solid black;
+}
+textarea {
+  border: 2px solid black;
+}
+button {
+  width: 100px;
+  display: flex;
+  text-align: right;
+} */

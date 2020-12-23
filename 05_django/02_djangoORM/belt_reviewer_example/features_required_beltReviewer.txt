@@ -1,0 +1,13 @@
+Features required:
+
+Login and Registration with validations. Validation errors should appear on the page. Logout as well.
+Display the logged user's wish list (top table) which includes the items logged user created and items logged user tagged to add on his own wishlist.
+Ability to move items from "Other Users' Wish List" to the logged user's wish list table.
+Ability to add new items. Validation applies.
+Individual item page which displays the list of users who added the item to their own wishlist.
+Removal of the items from wishlist table. 
+The person who added the product has an option to delete the product.
+
+
+
+also here is the exam code: 72Ef07b6

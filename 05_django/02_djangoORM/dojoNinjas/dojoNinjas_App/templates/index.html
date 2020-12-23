@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos & Ninjas</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- <style>
+        body {
+            background-image: url("CodingDojoLogo.png");
+        }
+    </style> -->
+</head>
+
+<body class="" style="background-color: gray;">
+    <div class="col-10 d-flex justify-content-around align-items-start mt-5 mx-auto">
+        <div class="col-sm-5 p-0 mt-5">
+            <div class="col card p-0 m-2">
+                <h2 class="card-header text-center text-white" style="background-color: navy;">Add a Dojo</h2>
+                <div class="card-body">
+                    <form action="/addDojo" method="POST" class="form-group">
+                        {% csrf_token %}
+                        <input type="text" class="form-control m-2" id="inputName" name="name" placeholder="Dojo Name">
+                        <input type="text" class="form-control m-2" id="inputCity" name="city" placeholder="Dojo City">
+                        <input type="text" class="form-control m-2" id="inputDojo" name="state"
+                            placeholder="Dojo State">
+                        <input type="submit" class="btn btn-secondary m-2" value="Add">
+                    </form>
+                </div>
+            </div>
+            <div class="col card p-0 m-2">
+                <!-- <div class="col-sm-4 card p-0 "> -->
+                <h2 class="card-header text-center text-white" style="background-color: navy;">Add a Ninja</h2>
+                <div class="card-body">
+                    <form action="/addNinja" method="POST" class="form-group">
+                        {% csrf_token %}
+                        <input type="text" class="form-control m-2" id="input_fName" name="fname"
+                            placeholder="First Name">
+                        <input type="text" class="form-control m-2" id="input_lName" name="lname"
+                            placeholder="Last Name">
+                        <select class="custom-select form-control m-2" id="input_Dojo" name="dojo">
+                            <option value="select dojo">select Dojo</option>
+                            {% for i in dojo_objects %}
+                            <option value="{{i.id}}">{{i.name}}</option>
+                            {% endfor %}
+                            <input type="submit" class="btn btn-secondary m-2" value="Add">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8 d-flex justify-content-around mt-5 p-0" style="height: fit-content;">
+            <div class="col-sm-10 card p-0 mx-auto">
+                <h3 class="card-header text-center text-white" style="background-color: navy;">All the Dojo and
+                    Ninjas!!!
+                </h3>
+                <ul id="all_dojo_info">
+                    {% for i in dojo_objects %}
+                    <li>
+                        Ninjas at the {{ i.name }} Dojo
+                        <ul>
+                            {% for j in i.ninjas.all %}
+                            <li>{{ j.fname }} {{ j.lname }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                    <div class="col mt-2">
+                        <form action="/deleteDojo" method="POST">
+                            {% csrf_token %}
+                            <h6>What dojo would you like to delete?</h6>
+                            <option value="select dojo"></option>
+                            <select class="custom-select col-6" id="deleteDojo" name="delete">
+                                {% for i in dojo_objects %}
+                                <option value="{{i.id}}">{{i.name}}</option>
+                                {% endfor %}
+                                <input type="submit" class="btn btn-danger m-2" value="delete">
+                        </form>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+</body>
+
+</html>

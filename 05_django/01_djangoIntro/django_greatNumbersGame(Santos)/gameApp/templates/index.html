@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="container">
+            <h1>Welcome to the number game</h1>
+            <p>I am thinking of a number between 1 and 10</p>
+            <p>Take a guess</p>
+            <form action="/guess" method="POST">
+                {% csrf_token %}
+                <input type='text' name='guess'>
+                <button type='submit'>Guess</button>
+            </form>
+            {%if request.session.guess > request.session.number%}
+            <div id="box1">{{request.session.alert}}, The number was {{request.session.number}}</div>
+            {%endif%}
+            {%if request.session.guess < request.session.number%} <div id="box2">{{request.session.alert}}, The number
+                was {{request.session.number}}
+        </div>
+        {%endif%}
+        {%if request.session.alert == "right on target"%}
+        <div id="box3">{{request.session.alert}}, The number was {{request.session.number}}</div>
+        {%endif%}
+    </div>
+    <div>
+        <form action="/reset" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm btn-success">Reset</button>
+        </form>
+    </div>
+</body>
+
+</html>

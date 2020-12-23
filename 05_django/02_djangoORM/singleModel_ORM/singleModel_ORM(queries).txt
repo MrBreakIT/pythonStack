@@ -1,0 +1,79 @@
+Query: Create 3 new users
+	1->>> Users.objects.create(fname="John", lname="Pike", email="gmail@piker.com", age="43")
+		<Users: Users object (1)>
+	2->>> Users.objects.create(fname="Jimmy", lname="James", email="who@cares.com", age=36)
+		<Users: Users object (2)>
+	3->>> Users.objects.create(fname="Johnny", lname="Karate", email="noOneKnows@anything.com", age=1099)
+		<Users: Users object (3)>
+
+Query: Retrieve all the users
+	>>> Users.objects.all()
+	<QuerySet [<Users: Users object (1)>, <Users: Users object (2)>, <Users: Users object (3)>]>
+	>>>
+
+
+Query: Retrieve the last user
+	>>> Users.objects.last()
+	<Users: Users object (3)>
+
+
+Query: Retrieve the first user
+	>>> Users.objects.first()
+	<Users: Users object (1)>
+	>>>
+
+
+Query: Change user with id=3 so last name is Pancakes
+	>>> Users.objects.last()
+	<Users: Users object (3)>
+	>>> Users.objects.get(id=3).lname
+	'Pancakes'
+
+
+Query: Delete the user with id=2 from database
+	>>> c=Users.objects.get(id=2)
+ 	>>> c.delete()
+	(1, {'users_app.Users': 1})
+	>>> Users.objects.all()
+	<QuerySet [<Users: Users object (1)>, <Users: Users object (3)>]>
+	>>>
+
+Query: Get all users, sorted by their first name
+	>>> Users.objects.all().order_by("fname"
+	... )
+	<QuerySet [<Users: Users object (1)>, <Users: Users object (3)>]>
+
+
+Query: Get all users, sorted by first name in descending order
+	>>> Users.objects.all().order_by("-fname")
+	<QuerySet [<Users: Users object (3)>, <Users: Users object (1)>]>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Query: Get all users, sorted by their first name in descending order
+
+
+BonusQuery: Get all users, sorted by their first name in descending order

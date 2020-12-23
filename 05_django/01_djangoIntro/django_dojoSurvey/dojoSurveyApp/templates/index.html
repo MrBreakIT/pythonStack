@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/index.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+
+<body class="col" style="background-color: slategray;">
+    <div class="card mx-auto m-5 d-flex justify-content-center col-6 align-items-center">
+        <form action="/users" method="post">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for {{name}} class="col-sm-2 col-form-label">UserName:</label>
+                <div class="col-sm-9">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="username">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for {{location}} class="col-sm-2 col-form-label">Dojo Location:</label>
+                <div class="col-sm-9">
+                    <select name="location" id="location" class="form-control">
+                        <option value="Arlington, VA">Arlington, VA</option>
+                        <option value="Bellvue, WA">Bellvue, WA</option>
+                        <option value="Boise, ID">Boise, ID</option>
+                        <option value="Chicago, IL">Chicago, IL</option>
+                        <option value="Dallas, TX">Dallas, TX</option>
+                        <option value="Los Angeles, CA">Los Angeles, CA</option>
+                        <option value="Oakland, Ca">Oakland, CA</option>
+                        <option value="Orange County, CA">Orange County, CA</option>
+                        <option value="San Jose, CA">San Jose, CA</option>
+                        <option value="Tulsa, OK">Tulsa, OK</option>
+                        <option value="Online-only">Online-only</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="language" class="col-sm-2 col-form-label">Favorite Language:</label>
+                <div class="col-sm-9">
+                    <select name="language" id="language" class="form-control">
+                        <option value="Python">Python</option>
+                        <option value="BootStrap">Bootstrap</option>
+                        <option value="Django">Django</option>
+                        <option value="HTML">HTML</option>
+                        <option value="javaScript">javaScript</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="commentArea" class="col-sm-2 col-form-label">Comment (optional):</label>
+                <div class="col-sm-9">
+                    <textarea placeholder="Comment here" name="comment" class="form-control col-sm-8"></textarea>
+                </div>
+            </div>
+            <div class="col justify-content-center">
+                <div class="col">
+                    <button class="btn btn-sm btn-success col">Submit info</button>
+                </div>
+        </form>
+        </form>
+    </div>
+
+
+
+
+</body>
+
+</html>

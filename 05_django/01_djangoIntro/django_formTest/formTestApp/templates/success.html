@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formtest_SUCCESS</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/index.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body style="background-color: slategray;" class="mt-5 mx-auto">
+    <div class="card mx-auto d-flex justify-contents-center">
+        <h1 class="col card-header mx-auto">Username and Email created!</h1>
+        <div class="col card-body">
+            <h3>User Information:</h3>
+            <p><i>Username: {{ nameOnTemplate }}</i></p>
+            <p><i>Email: {{ emailOnTemplate }}</i></p>
+        </div>
+
+    </div>
+</body>
+
+</html>

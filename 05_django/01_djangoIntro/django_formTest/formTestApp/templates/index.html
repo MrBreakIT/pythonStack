@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formTest</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/index.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+
+
+<body style="background-color: slategray;" class="m-5 d-flex mx-auto">
+    <div class="card d-flex mx-auto">
+        <h1 class="card-header col mx-auto" style="background-color: rgb(60, 133, 206);">Index Page</h1>
+        <h3 class="card-body col">Create a User</h3>
+        <form action='/users' method='post'>
+                {% csrf_token %}
+            <div class="form-group row">
+                <label for="userName" class="col-sm-2 col-form-label">User Name:</label>
+                <input type="text" name="userName" class="form-control col-sm-4">
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                <input type="text" name="email" class="form-control col-sm-4">
+            </div>
+            <div class="form-group col">
+                <button type="submit" class="btn btn-sm btn-success">Create User</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

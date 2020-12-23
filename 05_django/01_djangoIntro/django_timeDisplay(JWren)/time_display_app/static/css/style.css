@@ -1,0 +1,51 @@
+* {
+    font-family: Papyrus, fantasy;
+    text-align: center;
+}
+
+#container {
+    background: rgb(247, 226, 183);
+    background: radial-gradient(
+        circle,
+        rgba(247, 226, 183, 1) 64%,
+        rgba(142, 114, 59, 1) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+}
+
+header {
+    font-weight: 900;
+    font-size: 10vw;
+    text-shadow: saddlebrown;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 3vw;
+    text-decoration: underline;
+}
+
+#date_time_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+}
+
+.dates_times {
+    font-weight: 100;
+    font-size: 2vw;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 4vw;
+    text-decoration: underline;
+}

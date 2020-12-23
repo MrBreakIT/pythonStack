@@ -1,0 +1,19 @@
+Starting a Django project:
+
+1-  activate python virtual environment via Documents.  check piplist
+2-  cd into parent folder you want the project to reside
+3-  in console type: mkdir django_(projectNameHere) (do Not include the _Project yet)
+4-  cd into that project folder
+
+5-  in console type:  django-admin startproject (my_project_name)_Project (-end with Project- no spaces-)
+6-  cd into _Project folder
+7-  in console type:  python manage.py startapp (my_app_name)_App (-end with App- no spaces-)
+
+
+
+
+
+
+
+
+

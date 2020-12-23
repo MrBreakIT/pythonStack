@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>greatNumbersGame2</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body class="col-8 mx-auto mt-2" style="background-color: slategrey;">
+    <div class="col card" style="height: fit-content;">
+        <div class="col card-header mt-2 border border-dark">
+            <h1 class=" d-flex justify-content-center">Welcome to the number game!</h1>
+            <h5 class="d-flex justify-content-center">I am thinking of a number between 1-10</h5>
+            <h5 class="d-flex justify-content-center">Take a guess!</h5>
+            <h6 class="d-flex justify-content-center">This took far too long to style! Boooo Me!</h6>
+        </div>
+        <div class="d-flex justify-content-center m-2" style="height: 50px;">
+            <form action="/takeGuess" method="POST">
+                {% csrf_token %}
+                <input type="text" name="guess">
+                <button type="submit" class="btn btn-success ml-2">Guess!</button>
+            </form>
+            <form action="/reset" method="POST" class="">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success ml-2">Reset</button>
+            </form>
+        </div>
+        <div class="d-flex justify-content-center mx-auto mb-2" style="width: 500px; height: 200px; border:fit-content">
+            {% if request.session.guess > request.session.number %}
+            <div class="box d-flex justify-content-center align-items-center"
+                style="width: 500px; height: 200px; background-color: red;">
+                {{request.session.alert}}
+                {{request.session.number}}</div>
+            {% endif %}
+            {% if request.session.number > request.session.guess %}
+            <div class="box d-flex justify-content-center align-items-center"
+                style="width: 500px; height: 200px; background-color: red;">
+                {{request.session.alert}}
+                {{request.session.number}}</div>
+            {% endif %}
+            {% if request.session.alert == "Match!" %}
+            <div class="box d-flex justify-content-center align-items-center"
+                style="width: 500px; height: 200px; background-color: green;">
+                {{request.session.alert}}
+                {{request.session.number}}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

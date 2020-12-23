@@ -1,0 +1,65 @@
+Query: Create 3 new dojos
+    In [2]: Dojos.objects.all()
+    Out[2]: <QuerySet [<Dojos: Dojos object (1)>, <Dojos: Dojos object (2)>, <Dojos: Dojos object (3)>]>
+
+Query: Delete the 3 dojos you just created
+    In [3]: Dojos.objects.all().delete()
+    Out[3]: (3, {'dojo_ninjas_app.Ninjas': 0, 'dojo_ninjas_app.Dojos': 3})
+
+Query: Create 3 more dojos
+    In [5]: Dojos.objects.create(name = "Miagi", city = "Los Angeles", state = "CA")
+    Out[5]: <Dojos: Dojos object (4)>
+
+    In [6]: Dojos.objects.create(name = "Cobra Kai", city = "Los Angeles", state = "CA")
+    Out[6]: <Dojos: Dojos object (5)>
+
+    In [7]: Dojos.objects.create(name = "Lost Boys", city = "Sacremento", state = "CA")
+    Out[7]: <Dojos: Dojos object (6)>
+
+    In [8]: Dojos.objects.all()
+    Out[8]: <QuerySet [<Dojos: Dojos object (4)>, <Dojos: Dojos object (5)>, <Dojos: Dojos object (6)>]>
+
+Query: Create 3 ninjas that belong to the first dojo
+    In [23]: Dojos.objects.all()
+    Out[23]: <QuerySet [<Dojos: Dojos object (4)>, <Dojos: Dojos object (5)>, <Dojos: Dojos object (6)>]>
+
+    In [24]: Ninjas.objects.all()
+    Out[24]: <QuerySet [<Ninjas: Ninjas object (1)>, <Ninjas: Ninjas object (2)>, <Ninjas: Ninjas object (3)>]>
+
+Query: Create 3 ninjas that belong to the second dojo
+
+
+
+
+
+
+
+Query: Retrieve all the ninjas from the first dojo
+    In [11]: Dojos.objects.first().ninja_students.all()
+    Out[11]: <QuerySet [<Ninjas: <Ninjas object: Daniel LaRusso, <Dojos object: Miagi (Los Angeles, CA)>>>, <Ninjas: <Ninjas object: Mister Miyagi, <Dojos object: Miagi (Los Angeles, CA)>>>, <Ninjas: <Ninjas object: Ali Mills, <Dojos object: Miagi (Los Angeles, CA)>>>]>
+
+
+Query: Retrieve all the ninjas from the last dojo
+    In [39]: Dojos.objects.last().ninja_students.all()
+    Out[39]: <QuerySet [<Ninjas: Ninjas object (7)>, <Ninjas: Ninjas object (8)>, <Ninjas: Ninjas object (9)>]>
+
+Query: Retrieve the last ninja's dojo
+    In [48]: Ninjas.objects.last().dojo_id
+    Out[48]: <Dojos: Dojos object (6)>
+
+Add a new text field called "desc" to your Dojo class
+    In [7]: Dojos.objects.get(id=4).desc
+    Out[7]: 'Baddest Dojo around!'
+
+Query: Create a new dojo
+    In [14]: Dojos.objects.create(name = "The Final Dojo", city = "Boise", state="ID",  desc="far,far away")
+    Out[14]:
+    <Dojos: The Final Dojo (Boise, ID)
+
+
+
+
+
+
+
+

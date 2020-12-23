@@ -1,0 +1,39 @@
+*{
+    text-align: center;
+    margin: 10px auto;
+}
+
+h3{
+    color: red;
+    margin-top: 20px;
+}
+#header{
+    width: 20%;
+    height: auto;
+    border: 2px double black;
+    text-decoration: underline;
+
+}
+
+
+#container{
+    font-size: 12pt;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+#info_box{
+    margin: 10px auto;
+    border: 2px double black;
+    font-size: 32pt;
+    width: 40%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book and Review</title>
+
+    <style>
+        body {
+            background-color: lightslategray;
+        }
+
+        #container {
+            /* background-color: darkcyan; */
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <a href="/home">Home | </a>
+            <a href="/logout">Log Out</a>
+        </div>
+        <h3>Add a New Book Title and a Review:</h3>
+        <form action="/createBook_Review" method="post">
+            {% csrf_token %}
+            <p>Add Book Title: <input type="text" name="bookTitle" id=""></p>
+            <p>Add new Author: <input type="text" name="authorName" id=""></p>
+            <p>Or Choose Author: <select name="" id=""></select></p>
+
+            <textarea name="review" id="" cols="50" rows="10" placeholder="leave a review here"></textarea>
+            <div>
+                <button type="submit">Add Book and Review</button>
+            </div>
+        </form>
+        <!-- <form action="/addBook_Review">
+
+        </form> -->
+    </div>
+
+</body>
+
+</html>

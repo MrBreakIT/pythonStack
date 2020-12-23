@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+
+<body class="col" style="background-color: lightgray;">
+    <div class="col-6 card mx-auto mt-5 p-0">
+        <h1 class="col card-header text-white" style="background-color: navy;">Welcome to your navigation
+            page:
+            <i> {{loggedinuser.firstName}}</i>
+            <i> {{loggedinuser.lastName}}</i>
+        </h1>
+        <div class="col card-body d-flex justify-content-center m-2">
+            <p>Choose a section that you would like to view or update:</p>
+        </div>
+        <div class="col-4 card-body mx-auto">
+            <form action="/booksHomepage" class="form-group row">
+                <button type="submit" class="btn btn-sm btn-secondary form-control m-2">View Books</button>
+            </form>
+
+            <form action="/authorsHomepage" class="form-group row">
+                <button type="submit" class="btn btn-sm btn-secondary form-control m-2">View Authors</button>
+            </form>
+
+            <form action="/logout" class="form-group row">
+                <button type="submit" class="btn btn-sm btn-secondary form-control m-2">Log Out</button>
+            </form>
+        </div>
+
+    </div>
+
+
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register User</title>
+
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="Register">
+            <h2>You must log in for access!</h2>
+            <h2>Register Below</h2>
+            {% if messages %}
+            <ul class="messages" style="color: red">
+                     {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <p>First Name: <input type="text" name="fname"></p>
+                <p>Last Name: <input type="text" name="lname"></p>
+                <p>Email: <input type="text" name="email"></p>
+                <p>Password: <input type="password" name="password"></p>
+                <p>Confirm Password: <input type="password" name="confirmPW"></p>
+
+                <p><button type="submit">Register</button></p>
+            </form>
+        </div>
+
+</body>
+
+</html>

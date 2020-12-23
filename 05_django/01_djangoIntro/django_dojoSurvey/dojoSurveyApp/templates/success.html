@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/success.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+
+<body class="col" style="background-color: slategray;">
+    <div class="card mx-auto m-5 d-flex justify-content-center col-6 align-items-center">
+        <div class="form-group m-2">
+            <h4><u>Submitted Info</u></h4>
+        </div>
+        <div class="form-group m-2">
+            <p form-group row>Name: {{ nameOnTemplate }}</p>
+            <p form-group row>Dojo Location: {{ locationOnTemplate }}</p>
+            <p form-group row>Favorite Language: {{ languageOnTemplate }}</p>
+            <p form-group row>Comment: {{ commentOnTemplate }}</p>
+        </div>
+        <a href="/" class="btn btn-sm btn-success col-sm-2 mb-2">Home</a>
+    </div>
+</body>
+
+</html>

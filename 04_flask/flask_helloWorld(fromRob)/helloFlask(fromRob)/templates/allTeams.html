@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Here are all the teams</h1>
+    <p>{{theTeams}}</p>
+    {% for team in theTeams %}
+        <p>{{team.name}}</p>
+    {% endfor %}
+
+    <table>
+        <tr>
+          <th>Team ID</th>
+          <th>Name</th>
+          <th>City</th>
+        </tr>
+        {% for team in theTeams %}
+        <tr>
+            <td>{{team.id}}</td>
+            <td>{{team.name}}</td>
+            <td>{{team.city}}</td>
+        </tr>
+        {% endfor %}
+        
+      </table>
+</body>
+</html>

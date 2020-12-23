@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Bootstrap 4.5 CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Bootstrap JS Requirements -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <title>Counter index</title>
+
+
+</head>
+
+<body class="card col-8 mx-auto mt-5">
+    <div class="card-header">
+        <h1 class="row justify-content-center"><u>Counter</u></h1>
+        <p class="row justify-content-center">You have visited this site {{ request.session.num_visits }} times.</p>
+    </div>
+    <div class="card-body form-group justify-content-center mx-auto ">
+        <div id="plus2" class="row justify-content-center ">
+            <form action="/add2">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-primary btn-md form-control m-2">+2</button>
+            </form>
+        </div>
+        <div id="choices" class="row justify-content-center m-2">
+            <form action="/yourChoice" method="POST" class="">
+                {% csrf_token %}
+                <select name="choice" id="choice" class="form-control m-2">
+                    <option value=10>10</option>
+                    <option value=20>20</option>
+                    <option value=30>30</option>
+                </select>
+                <button type='submit' class=" btn btn-outline-primary btn-md form-control m-2">Submit</button>
+            </form>
+        </div>
+        <div id="delete_session" class="row justify-content-center m-2">
+            <form action="/destroySession">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-primary btn-md">Reset the World!</button>
+            </form>
+        </div>
+        <div>
+            <h6>User page visits: {{ request.session.pageview }} | Value of counter: {{ request.session.num_visits }}
+            </h6>
+        </div>
+    </div>
+
+</body>
+
+</html>

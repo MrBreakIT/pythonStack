@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground-PIKE</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+
+    <style>
+        .box {
+            background-color: {
+                    {
+                    color
+                }
+            }
+
+            ;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <wrapper>
+        <h1>Here are your damn {{num}} {{color}} boxes.</h1>
+        {% for i in range(0,num,1) %}
+        <div class="box"></div>
+        {% endfor %}
+
+
+
+
+    </wrapper>
+
+
+</body>
+
+</html>

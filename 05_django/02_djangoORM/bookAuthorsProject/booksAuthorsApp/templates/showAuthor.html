@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Title Info</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+
+<body class="col" style="background-color:rgb(131,138,149)">
+    <div class="col-10 d-flex justify-content-around align-items-start mt-5 mx-auto">
+        <div class="col-sm-4 p-0 mt-5">
+            <div class="col card p-0">
+                <h3 class="card-header text-center text-white p-0" style="background-color: navy;">Authors Name:
+                    {{authorinfo.fname}} {{authorinfo.lname}}</h3>
+                <div class="col card-body p-0 text-center mt-2">
+                    <p>Books written:</p>
+                    <!-- {{authorinfo.books.all}} -->
+                    <ul>{% for books in authorinfo.books.all %}
+                        <li style="list-style: none;">{{books.title}}</li>
+                        {% endfor %}
+                    </ul>
+                    <p>Notes: <i>{{authorinfo.notes}}</i></p>
+                </div>
+                <div class="col card-body text-center">
+                    <hr>
+                    <h5>Add title to this author</h5>
+                    <form action="/addBookToAuthor/{{authorinfo.id}}" method="POST" class="form-group">
+                        {% csrf_token %}
+                        <div class="col d-flex justify-content-around text-center">
+                            <select name="bookinfo" class="col-sm-4 m-2 form-control">
+                                {% for books in allBooks %}
+                                <option value="{{books.id}}">{{books.title}}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="submit" value="Add Title" class="btn btn-sm btn-success m-2 form-control">
+                            <a href="/authorsHomepage" class="btn btn-sm btn-success m-2 form-control">Authors
+                                Homepage</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

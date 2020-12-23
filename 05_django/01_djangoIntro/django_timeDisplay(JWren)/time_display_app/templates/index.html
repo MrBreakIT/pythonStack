@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Display</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body class="col" style="background-color: darkslategray;">
+    <div id="container" class="col mx-auto mt-5" style="background-color: tan;">
+        <header><b>{{weekday}}</b></header>
+        <h2>Current Time and Date:</h2>
+        <div id="date_time_box">
+            <div class="dates_times">{{twentyfour_hour_clock}}</div>
+            <div class="dates_times">{{twelve_hour_clock}}</div>
+            <div class="dates_times">{{day_month_year}}</div>
+        </div>
+        <h1 class="mt-5">Quote of the Day:
+        </h1>
+        <p id="quote_of_day">
+            <i id="quote">"Your bones don't break, mine do. That's clear. Your cells react
+                to bacteria and viruses differently than mine. You don't get
+                sick, I do. That's also clear. But for some reason, you and I
+                react the exact same way to water. We swallow it too fast, we
+                choke. We get some in our lungs, we drown. However unreal it may
+                seem, we are connected, you and I. We're on the same curve, just
+                on opposite ends."</i>
+        </p>
+        <p id="quote_author">
+            <b>Samuel Jackson</b> as <b><i id="character">Elijah Price</i></b> in
+            <b>Glass</b>
+        </p>
+    </div>
+</body>
+
+</html>

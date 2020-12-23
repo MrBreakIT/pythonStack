@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello_Flask</title>
+</head>
+
+
+
+
+<body>
+
+    <h1>Welcome to my bootleg of whatever!</h1>
+    <h3>My Flask Templet</h3>
+    <p>Phrase: {{phrase}}</p>
+    <p>Times: {{times}}</p>
+
+    // this is a forLoop being directed from .py file
+    {% for x in range(0,times): %}
+    <p>{{phrase}}</p>
+    {% endfor %}
+    // must include and end forLoop
+
+    // same for if statement
+    {% if phrase == "hello"%}
+    <p>The phrase says you're an idiot</p>
+    {% endif %}
+    // must include an end if statement
+
+
+</body>
+
+</html>
